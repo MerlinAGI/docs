@@ -51,7 +51,10 @@
     },
     {
       "group": "Endpoints",
-      "pages": ["api-reference/endpoint/responses"]
+      "pages": [
+        "api-reference/endpoint/responses",
+        "api-reference/endpoint/list_surveys"
+      ]
     }
   ],
   "footerSocials": {
