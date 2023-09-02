@@ -1,0 +1,43 @@
+---
+title: "List Surveys"
+api: "GET https://talktomerlin.com/api/public/list_surveys"
+description: "This endpoint lists all surveys."
+---
+
+### Response
+
+Returns a list of surveys.
+Each survey is an object with the following fields:
+
+<ResponseField name="id" type="uuid">
+  Permanent unique identifier for the survey.
+</ResponseField>
+
+<ResponseField name="link_id" type="string">
+  The link id of the survey. This is editable in the survey settings so it might
+  change.
+</ResponseField>
+
+```bash Example Request
+curl 'https://talktomerlin.com/api/public/list_surveys' \
+-H 'x-id: <id_token>'
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json Response
+[
+  {
+    "id": "12345678-0000-0000-0000-000000000000",
+    "link_id": "survey-1"
+  },
+  {
+    "id": "23456789-0000-0000-0000-000000000000",
+    "link_id": "survey-2"
+  }
+]
+```
+
+</ResponseExample>
