@@ -1,0 +1,103 @@
+---
+title: "Get Responses"
+api: "GET https://talktomerlin.com/api/public/responses/{survey_id}"
+description: "This endpoint lists all responses for a given survey."
+---
+
+### Body
+
+<ParamField path="survey_id" type="string">
+  The survey id. You find it in the URL, eg. in
+  `https://talktomerlin.com/s/abc123` the survey id is `abc123`.
+</ParamField>
+
+### Response
+
+Returns a list of responses for the given survey.
+Each response is an object with the following fields:
+
+<ResponseField name="id" type="uuid">
+  Unique identifier for the response.
+</ResponseField>
+
+<ResponseField name="created_at" type="string">
+  UTC timestamp of when the response was created.
+</ResponseField>
+
+<ResponseField name="answers" type="object">
+Answers to all questions of the survey.
+
+<Expandable title="Example Answers">
+
+<ResponseField name="Summary" type="string">
+  A summary of the entire conversation. Available for all surveys.
+</ResponseField>
+
+<ResponseField name="Question 1" type="string">
+  Everything the user said in response to question 1.
+</ResponseField>
+
+<ResponseField name="Question 2" type="string">
+  Everything the user said in response to question 2.
+</ResponseField>
+
+</Expandable>
+
+</ResponseField>
+
+<ResponseField name="attributes" type="object">
+URL parameters that were passed to the survey.
+
+<Expandable title="Example Attributes">
+
+<ResponseField name="id" type="string">
+  An id that is passed to survey eg. `https://talktomerlin.com/s/abc123?id=123`.
+</ResponseField>
+</Expandable>
+
+</ResponseField>
+
+<ResponseField name="short_transcript" type="string">
+  A transcript of the entire conversation where the assistant messages are
+  shortened to a couple of words.
+</ResponseField>
+
+<RequestExample>
+
+```bash Example Request
+curl 'https://talktomerlin.com/api/public/responses/survey123' \
+-H 'x-id: <id_token>'
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json Response
+[
+  {
+    "id": "12345678-0000-0000-0000-000000000000",
+    "created_at": "2023-08-18T11:51:54.649916+00:00",
+    "answers": {
+      "Summary": "Summary of response 1",
+      "Question 1": "Answer of question 1",
+      "Question 2": "Answer of question 2"
+    },
+    "attributes": { "id": "123" },
+    "short_transcript": "• Welcome → Start\n• Ask for name → John\n• Thank you, bye → "
+  },
+  {
+    "id": "23456789-0000-0000-0000-000000000000",
+    "created_at": "2023-08-19T11:51:54.649916+00:00",
+    "answers": {
+      "Summary": "Summary of response 2",
+      "Question 1": "Answer of question 1",
+      "Question 2": "Answer of question 2"
+    },
+    "attributes": { "id": "567" },
+    "short_transcript": "• Welcome → Start\n• Ask for name → Alice\n• Thank you, bye → "
+  }
+]
+```
+
+</ResponseExample>
