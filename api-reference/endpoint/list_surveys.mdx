@@ -1,38 +1,38 @@
 ---
-title: "List Surveys"
-api: "GET https://talktomerlin.com/api/public/list_surveys"
-description: "This endpoint lists all surveys."
+title: "List Studies"
+api: "GET https://listenlabs.ai/api/public/list_surveys"
+description: "This endpoint lists all studys. **Note**: This method is *not* available when authenticating via API-key"
 ---
 
 ### Response
 
-Returns a list of surveys.
-Each survey is an object with the following fields:
+Returns a list of studys.
+Each study is an object with the following fields:
 
 <ResponseField name="id" type="uuid">
-  Permanent unique identifier for the survey.
+  Permanent unique identifier for the study.
 </ResponseField>
 
 <ResponseField name="link_id" type="string">
-  The link id of the survey. This is editable in the survey settings so it might
+  The link id of the study. This is editable in the study settings so it might
   change.
 </ResponseField>
 
 <ResponseField name="title" type="string">
-  The title of the survey.
+  The title of the study.
 </ResponseField>
 
 <ResponseField name="created_at" type="string">
-  UTC timestamp of when the survey was created.
+  UTC timestamp of when the study was created.
 </ResponseField>
 
 <ResponseField name="desc" type="string">
-  A description of the survey. Eg. "My Survey (10 Responses)"
+  A description of the study. Eg. "My study (10 Responses)"
 </ResponseField>
 
 <RequestExample>
 ```bash Example Request
-curl 'https://talktomerlin.com/api/public/list_surveys' \
+curl 'https://listenlabs.ai/api/public/list_surveys' \
 -H 'x-id: <id_token>'
 ```
 </RequestExample>
@@ -43,17 +43,17 @@ curl 'https://talktomerlin.com/api/public/list_surveys' \
 [
   {
     "id": "12345678-0000-0000-0000-000000000000",
-    "link_id": "survey-1",
-    "title": "Example Survey",
+    "link_id": "study-1",
+    "title": "Example study",
     "created_at": "2023-09-02T07:07:17.960725+00:00",
-    "desc": "Example Survey (12 Responses)"
+    "desc": "Example study (12 Responses)"
   },
   {
     "id": "23456789-0000-0000-0000-000000000000",
-    "link_id": "survey-2",
-    "title": "Example Survey 2",
+    "link_id": "study-2",
+    "title": "Example study 2",
     "created_at": "2023-09-01T07:07:17.960725+00:00",
-    "desc": "Example Survey 2 (9 Responses)"
+    "desc": "Example study 2 (9 Responses)"
   }
 ]
 ```

@@ -1,18 +1,18 @@
 {
   "$schema": "https://mintlify.com/schema.json",
-  "name": "Merlin AI Docs",
+  "name": "Listen Labs AI Docs",
   "logo": {
-    "dark": "/logo/merlin-lockup-tight-dark.svg",
-    "light": "/logo/merlin-lockup-tight.svg"
+    "dark": "/logo/lockup-dark.png",
+    "light": "/logo/lockup.png"
   },
   "modeToggle": {
     "default": "light"
   },
   "favicon": "/favicon.png",
   "colors": {
-    "primary": "#50A265",
-    "light": "#7FCF93",
-    "dark": "#01280B",
+    "primary": "#0021CC",
+    "light": "#dbe1ff",
+    "dark": "#0021CC",
     "background": {
       "dark": "#171717"
     }
@@ -20,12 +20,12 @@
   "topbarLinks": [
     {
       "name": "Support",
-      "url": "mailto:support@talktomerlin.com"
+      "url": "https://support.listenlabs.ai"
     }
   ],
   "topbarCtaButton": {
     "name": "Dashboard",
-    "url": "https://talktomerlin.com/dashboard"
+    "url": "https://listenlabs.ai/dashboard"
   },
   "tabs": [
     {
@@ -33,13 +33,7 @@
       "url": "api-reference"
     }
   ],
-  "anchors": [
-    {
-      "name": "Slack Community",
-      "icon": "slack",
-      "url": "https://fansofmerlin.slack.com"
-    }
-  ],
+  "anchors": [],
   "navigation": [
     {
       "group": "Get Started",
@@ -58,8 +52,8 @@
     }
   ],
   "footerSocials": {
-    "twitter": "https://twitter.com/itsMerlinAI",
-    "linkedin": "https://www.linkedin.com/company/merlinai"
+    "twitter": "https://x.com/listenlabs",
+    "linkedin": "https://www.linkedin.com/company/listenlabss"
   },
   "api": {
     "auth": {

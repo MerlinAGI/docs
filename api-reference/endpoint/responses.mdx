@@ -1,19 +1,19 @@
 ---
 title: "Get Responses"
-api: "GET https://talktomerlin.com/api/public/responses/{survey_id}"
-description: "This endpoint lists all responses for a given survey."
+api: "GET https://listenlabs.ai/api/public/responses/{study_id}"
+description: "This endpoint lists all responses for a given study."
 ---
 
 ### Body
 
-<ParamField path="survey_id" type="string">
-  The survey id. You find it in the URL, eg. in
-  `https://talktomerlin.com/s/abc123` the survey id is `abc123`.
+<ParamField path="study_id" type="string">
+  The study id. You find it in the URL, eg. in `https://listenlabs.ai/s/abc123`
+  the study id is `abc123`.
 </ParamField>
 
 ### Response
 
-Returns a list of responses for the given survey.
+Returns a list of responses for the given study.
 Each response is an object with the following fields:
 
 <ResponseField name="id" type="uuid">
@@ -25,12 +25,12 @@ Each response is an object with the following fields:
 </ResponseField>
 
 <ResponseField name="answers" type="object">
-Answers to all questions of the survey.
+Answers to all questions of the study.
 
 <Expandable title="Example Answers">
 
 <ResponseField name="Summary" type="string">
-  A summary of the entire conversation. Available for all surveys.
+  A summary of the entire conversation. Available for all studys.
 </ResponseField>
 
 <ResponseField name="Question 1" type="string">
@@ -46,12 +46,12 @@ Answers to all questions of the survey.
 </ResponseField>
 
 <ResponseField name="attributes" type="object">
-URL parameters that were passed to the survey.
+URL parameters that were passed to the study.
 
 <Expandable title="Example Attributes">
 
 <ResponseField name="id" type="string">
-  An id that is passed to survey eg. `https://talktomerlin.com/s/abc123?id=123`.
+  An id that is passed to study eg. `https://listenlabs.ai/s/abc123?id=123`.
 </ResponseField>
 </Expandable>
 
@@ -65,8 +65,8 @@ URL parameters that were passed to the survey.
 <RequestExample>
 
 ```bash Example Request
-curl 'https://talktomerlin.com/api/public/responses/survey123' \
--H 'x-id: <id_token>'
+curl 'https://listenlabs.ai/api/public/responses/study123' \
+-H 'x-api-key: <api_key>'
 ```
 
 </RequestExample>

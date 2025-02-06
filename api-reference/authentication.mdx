@@ -3,7 +3,20 @@ title: "Authentication"
 #description: "Example overview page before API endpoints"
 ---
 
-Using Merlin's API is only possible if your account is login with Google (OAuth2). In that case, use set the `x-id` header to a valid _id_token_ from your Google account.
+### Method 1: API key
+
+1. Please contact support@listenlabs.ai to request an API key.
+2. Use it in your request as in the `x-api-key` header.
+
+```bash
+'x-api-key': 'abc123....'
+```
+
+Note that this method currently only supports the `/get_responses` endpoint.
+
+### Method 2: Google Id Token
+
+This method is only possible if your account uses signin with Google (OAuth2). In that case, use set the `x-id` header to a valid _id_token_ from your Google account.
 
 ```bash
 'x-id': 'eyJh....'
