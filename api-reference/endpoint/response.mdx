@@ -57,10 +57,6 @@ Returns a single response with detailed information:
   </Expandable>
 </ResponseField>
 
-<ResponseField name="response_index" type="number">
-  The index of this exchange in the conversation.
-</ResponseField>
-
 </Expandable>
 </ResponseField>
 
@@ -84,15 +80,13 @@ curl 'https://listenlabs.ai/api/public/responses/study-1/12345678-0000-0000-0000
       "moderator": "Welcome to our audio survey. Can you describe your experience with our product?",
       "user": "The product has been very helpful for our team's workflow.",
       "audio": "https://storage.listenlabs.ai/audio/responses/abc123.mp3?token=...",
-      "video": null,
-      "response_index": 0
+      "video": null
     },
     {
       "moderator": "What specific features do you find most useful?",
       "user": "The task management and integration capabilities are standouts for us.",
       "audio": "https://storage.listenlabs.ai/audio/responses/def456.mp3?token=...",
-      "video": null,
-      "response_index": 1
+      "video": null
     }
   ]
 }
@@ -110,8 +104,7 @@ curl 'https://listenlabs.ai/api/public/responses/study-1/12345678-0000-0000-0000
       "video": {
         "stream_url": "https://stream.mux.com/vWx123.m3u8",
         "mp4_url": "https://stream.mux.com/vWx123/capped-1080p.mp4"
-      },
-      "response_index": 0
+      }
     },
     {
       "moderator": "What attracted you to our company?",
@@ -120,8 +113,7 @@ curl 'https://listenlabs.ai/api/public/responses/study-1/12345678-0000-0000-0000
       "video": {
         "stream_url": "https://stream.mux.com/yZ456.m3u8",
         "mp4_url": "https://stream.mux.com/yZ456/capped-1080p.mp4"
-      },
-      "response_index": 1
+      }
     }
   ]
 }
@@ -136,15 +128,13 @@ curl 'https://listenlabs.ai/api/public/responses/study-1/12345678-0000-0000-0000
       "moderator": "How would you rate your satisfaction with our customer service?",
       "user": "I would rate it 9/10. Your support team was quick to respond and very helpful.",
       "audio": null,
-      "video": null,
-      "response_index": 0
+      "video": null
     },
     {
       "moderator": "What suggestions do you have for improvement?",
       "user": "It would be nice to have weekend support hours for urgent issues.",
       "audio": null,
-      "video": null,
-      "response_index": 1
+      "video": null
     }
   ]
 }
