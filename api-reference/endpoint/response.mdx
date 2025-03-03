@@ -1,0 +1,153 @@
+---
+title: "Get Single Response"
+api: "GET https://listenlabs.ai/api/public/responses/{link_id}/{response_id}"
+description: "This endpoint retrieves a single response for a specific study."
+---
+
+### Path Parameters
+
+<ParamField path="link_id" type="string">
+  The link ID of the study. You can find this in the study URL or via the List Studies endpoint.
+</ParamField>
+
+<ParamField path="response_id" type="string">
+  The unique ID of the specific response you want to retrieve.
+</ParamField>
+
+### Response
+
+Returns a single response with detailed information:
+
+<ResponseField name="id" type="string">
+  Unique identifier for the response.
+</ResponseField>
+
+<ResponseField name="survey" type="string">
+  The link ID of the survey this response belongs to.
+</ResponseField>
+
+<ResponseField name="transcript" type="array">
+  A complete transcript of the conversation, with each entry containing:
+
+<Expandable title="Transcript Entry Structure">
+
+<ResponseField name="moderator" type="string">
+  The message from the assistant/moderator.
+</ResponseField>
+
+<ResponseField name="user" type="string">
+  The response from the user.
+</ResponseField>
+
+<ResponseField name="audio" type="string">
+  A signed URL to the audio recording of the user's response, if available. 
+  This URL is valid for 1 hour. If no audio recording exists, this will be null.
+</ResponseField>
+
+<ResponseField name="video" type="object">
+  Video playback information, if available. If no video recording exists, this will be null.
+
+  <Expandable title="Video Object">
+    <ResponseField name="stream_url" type="string">
+      HLS stream URL for the video recording.
+    </ResponseField>
+    <ResponseField name="mp4_url" type="string">
+      Direct MP4 download URL for the video recording.
+    </ResponseField>
+  </Expandable>
+</ResponseField>
+
+<ResponseField name="response_index" type="number">
+  The index of this exchange in the conversation.
+</ResponseField>
+
+</Expandable>
+</ResponseField>
+
+<RequestExample>
+
+```bash Example Request
+curl 'https://listenlabs.ai/api/public/responses/study-1/12345678-0000-0000-0000-000000000000' \
+-H 'x-api-key: <api_key>'
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json Response - Audio and Text
+{
+  "id": "12345678-0000-0000-0000-000000000000",
+  "survey": "audio-survey",
+  "transcript": [
+    {
+      "moderator": "Welcome to our audio survey. Can you describe your experience with our product?",
+      "user": "The product has been very helpful for our team's workflow.",
+      "audio": "https://storage.listenlabs.ai/audio/responses/abc123.mp3?token=...",
+      "video": null,
+      "response_index": 0
+    },
+    {
+      "moderator": "What specific features do you find most useful?",
+      "user": "The task management and integration capabilities are standouts for us.",
+      "audio": "https://storage.listenlabs.ai/audio/responses/def456.mp3?token=...",
+      "video": null,
+      "response_index": 1
+    }
+  ]
+}
+```
+
+```json Response - Video and Text
+{
+  "id": "23456789-0000-0000-0000-000000000000",
+  "survey": "video-interview",
+  "transcript": [
+    {
+      "moderator": "Tell us about your background in the industry.",
+      "user": "I've been working in software development for over 10 years, primarily focusing on frontend technologies.",
+      "audio": null,
+      "video": {
+        "stream_url": "https://stream.mux.com/vWx123.m3u8",
+        "mp4_url": "https://stream.mux.com/vWx123/capped-1080p.mp4"
+      },
+      "response_index": 0
+    },
+    {
+      "moderator": "What attracted you to our company?",
+      "user": "Your focus on innovative solutions and strong company culture really resonated with me.",
+      "audio": null,
+      "video": {
+        "stream_url": "https://stream.mux.com/yZ456.m3u8",
+        "mp4_url": "https://stream.mux.com/yZ456/capped-1080p.mp4"
+      },
+      "response_index": 1
+    }
+  ]
+}
+```
+
+```json Response - Text Only
+{
+  "id": "34567890-0000-0000-0000-000000000000",
+  "survey": "text-feedback",
+  "transcript": [
+    {
+      "moderator": "How would you rate your satisfaction with our customer service?",
+      "user": "I would rate it 9/10. Your support team was quick to respond and very helpful.",
+      "audio": null,
+      "video": null,
+      "response_index": 0
+    },
+    {
+      "moderator": "What suggestions do you have for improvement?",
+      "user": "It would be nice to have weekend support hours for urgent issues.",
+      "audio": null,
+      "video": null,
+      "response_index": 1
+    }
+  ]
+}
+```
+
+</ResponseExample>

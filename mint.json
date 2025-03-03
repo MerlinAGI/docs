@@ -47,6 +47,7 @@
       "group": "Endpoints",
       "pages": [
         "api-reference/endpoint/responses",
+        "api-reference/endpoint/response",
         "api-reference/endpoint/list_surveys"
       ]
     }
