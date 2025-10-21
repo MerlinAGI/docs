@@ -19,8 +19,10 @@ Each response is an object with the following fields:
 <ResponseField name="id" type="uuid">
   Unique identifier for the response.
 </ResponseField>
-
-<ResponseField name="created_at" type="string">
+<ResponseField name="response_number" type="number">
+  The ordered number of the response.
+</ResponseField>
+<ResponseField name="updated_at" type="string">
   UTC timestamp of when the response was created.
 </ResponseField>
 
@@ -40,6 +42,26 @@ Answers to all questions of the study.
 <ResponseField name="Question 2" type="string">
   Everything the user said in response to question 2.
 </ResponseField>
+
+</Expandable>
+
+</ResponseField>
+
+<ResponseField name="answers_array" type="Response[]">
+Answers to all questions of the study as an array.
+
+<Expandable title="Response">
+
+<ResponseField name="question_id" type="string">
+  The id of the question.
+</ResponseField>
+<ResponseField name="question" type="string">
+  The question text.
+</ResponseField>
+<ResponseField name="answer" type="string">
+  The answer to the question.
+</ResponseField>
+
 
 </Expandable>
 
