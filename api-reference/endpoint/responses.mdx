@@ -4,11 +4,25 @@ api: "GET https://listenlabs.ai/api/public/responses/{study_id}"
 description: "This endpoint lists all responses for a given study."
 ---
 
-### Body
+### Path Parameters
 
 <ParamField path="study_id" type="string">
   The study id. You find it in the URL, eg. in `https://listenlabs.ai/s/abc123`
   the study id is `abc123`.
+</ParamField>
+
+### Query Parameters
+
+<ParamField query="page" type="integer" default="0">
+  The page number for pagination.
+</ParamField>
+
+<ParamField query="per_page" type="integer" default="1000">
+  Number of responses to return per page.
+</ParamField>
+
+<ParamField query="updated_since" type="string">
+  ISO 8601 date string to filter responses updated after this date (e.g., `2023-08-18T11:51:54.649916Z`).
 </ParamField>
 
 ### Response
@@ -22,8 +36,11 @@ Each response is an object with the following fields:
 <ResponseField name="response_number" type="number">
   The ordered number of the response.
 </ResponseField>
-<ResponseField name="updated_at" type="string">
+<ResponseField name="created_at" type="string">
   UTC timestamp of when the response was created.
+</ResponseField>
+<ResponseField name="updated_at" type="string">
+  UTC timestamp of when the response was last updated.
 </ResponseField>
 
 <ResponseField name="answers" type="object">
@@ -87,7 +104,7 @@ URL parameters that were passed to the study.
 <RequestExample>
 
 ```bash Example Request
-curl 'https://listenlabs.ai/api/public/responses/study123' \
+curl 'https://listenlabs.ai/api/public/responses/study123?page=0&per_page=100&updated_since=2023-08-18T00:00:00Z' \
 -H 'x-api-key: <api_key>'
 ```
 
