@@ -25,6 +25,10 @@ description: "This endpoint lists all responses for a given study."
   ISO 8601 date string to filter responses updated after this date (e.g., `2023-08-18T11:51:54.649916Z`).
 </ParamField>
 
+<ParamField query="include_in_progress" type="boolean" default="true">
+Whether to include responses that who's analysis is still in progress.
+</ParamField>
+
 ### Response
 
 Returns a list of responses for the given study.
