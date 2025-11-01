@@ -1,14 +1,14 @@
 ---
 title: "Get Responses"
-api: "GET https://listenlabs.ai/api/public/responses/{study_id}"
+api: "GET https://listenlabs.ai/api/public/responses/{link_id}"
 description: "This endpoint lists all responses for a given study."
 ---
 
 ### Path Parameters
 
-<ParamField path="study_id" type="string">
-  The study id. You find it in the URL, eg. in `https://listenlabs.ai/s/abc123`
-  the study id is `abc123`.
+<ParamField path="link_id" type="string">
+  The link ID of the study. You can find this in the study URL or via the List Studies endpoint.
+  For example, in `https://listenlabs.ai/s/abc123` the link ID is `abc123`.
 </ParamField>
 
 ### Query Parameters
