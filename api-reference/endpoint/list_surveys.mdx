@@ -1,7 +1,7 @@
 ---
 title: "List Studies"
 api: "GET https://listenlabs.ai/api/public/list_surveys"
-description: "This endpoint lists all studys. **Note**: This method is *not* available when authenticating via API-key"
+description: "This endpoint lists all studys."
 ---
 
 ### Response
@@ -33,7 +33,7 @@ Each study is an object with the following fields:
 <RequestExample>
 ```bash Example Request
 curl 'https://listenlabs.ai/api/public/list_surveys' \
--H 'x-id: <id_token>'
+-H 'x-api-key: <api_key>'
 ```
 </RequestExample>
 
