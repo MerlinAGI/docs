@@ -73,8 +73,17 @@ Answers to all questions of the study as an array.
 
 <Expandable title="Response">
 
-<ResponseField name="question_id" type="string">
-  The id of the question.
+<ResponseField name="answer_id" type="string">
+  The answer ID. Matches the `answer_id` on transcript rows from the single response endpoint, enabling cross-referencing.
+</ResponseField>
+<ResponseField name="discussion_guide_question_id" type="string">
+  The discussion guide question ID.
+</ResponseField>
+<ResponseField name="concept_id" type="string | null">
+  The concept ID. Null if not concept-specific.
+</ResponseField>
+<ResponseField name="question_id" type="string" deprecated>
+  Deprecated. Use `answer_id` instead.
 </ResponseField>
 <ResponseField name="question" type="string">
   The question text.
@@ -82,7 +91,6 @@ Answers to all questions of the study as an array.
 <ResponseField name="answer" type="string">
   The answer to the question.
 </ResponseField>
-
 
 </Expandable>
 
@@ -126,6 +134,24 @@ curl 'https://listenlabs.ai/api/public/responses/study123?page=0&per_page=100&up
       "Question 1": "Answer of question 1",
       "Question 2": "Answer of question 2"
     },
+    "answers_array": [
+      {
+        "answer_id": "f1e2d3c4-0000-0000-0000-000000000001",
+        "discussion_guide_question_id": "a1b2c3d4-0000-0000-0000-000000000001",
+        "concept_id": null,
+        "question_id": "q-001",
+        "question": "Question 1",
+        "answer": "Answer of question 1"
+      },
+      {
+        "answer_id": "f1e2d3c4-0000-0000-0000-000000000002",
+        "discussion_guide_question_id": "a1b2c3d4-0000-0000-0000-000000000002",
+        "concept_id": "b2c3d4e5-0000-0000-0000-000000000001",
+        "question_id": "q-002",
+        "question": "Question 2",
+        "answer": "Answer of question 2"
+      }
+    ],
     "attributes": { "id": "123" },
     "short_transcript": "• Welcome → Start\n• Ask for name → John\n• Thank you, bye → "
   },
@@ -137,6 +163,24 @@ curl 'https://listenlabs.ai/api/public/responses/study123?page=0&per_page=100&up
       "Question 1": "Answer of question 1",
       "Question 2": "Answer of question 2"
     },
+    "answers_array": [
+      {
+        "answer_id": "f1e2d3c4-0000-0000-0000-000000000001",
+        "discussion_guide_question_id": "a1b2c3d4-0000-0000-0000-000000000001",
+        "concept_id": null,
+        "question_id": "q-001",
+        "question": "Question 1",
+        "answer": "Answer of question 1"
+      },
+      {
+        "answer_id": "f1e2d3c4-0000-0000-0000-000000000002",
+        "discussion_guide_question_id": "a1b2c3d4-0000-0000-0000-000000000002",
+        "concept_id": null,
+        "question_id": "q-002",
+        "question": "Question 2",
+        "answer": "Answer of question 2"
+      }
+    ],
     "attributes": { "id": "567" },
     "short_transcript": "• Welcome → Start\n• Ask for name → Alice\n• Thank you, bye → "
   }

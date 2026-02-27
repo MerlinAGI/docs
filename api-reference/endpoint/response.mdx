@@ -40,6 +40,18 @@ Returns a single response with detailed information:
   The response from the user.
 </ResponseField>
 
+<ResponseField name="discussion_guide_question_id" type="string">
+  The discussion guide question ID for this row.
+</ResponseField>
+
+<ResponseField name="concept_id" type="string | null">
+  The concept ID for this row. Null if the question isn't concept-specific.
+</ResponseField>
+
+<ResponseField name="answer_id" type="string | null">
+  The answer ID for this question. Matches the `answer_id` in the list endpoint's `answers_array`, enabling cross-referencing between transcript rows and extracted answers. Null for non-question rows (e.g. intro messages).
+</ResponseField>
+
 <ResponseField name="audio" type="string">
   A signed URL to the audio recording of the user's response, if available. 
   This URL is valid for 1 hour. If no audio recording exists, this will be null.
@@ -80,12 +92,18 @@ curl 'https://listenlabs.ai/api/public/responses/study-1/12345678-0000-0000-0000
     {
       "moderator": "Welcome to our audio survey. Can you describe your experience with our product?",
       "user": "The product has been very helpful for our team's workflow.",
+      "discussion_guide_question_id": "a1b2c3d4-0000-0000-0000-000000000001",
+      "concept_id": null,
+      "answer_id": "f1e2d3c4-0000-0000-0000-000000000001",
       "audio": "https://storage.listenlabs.ai/audio/responses/abc123.mp3?token=...",
       "video": null
     },
     {
       "moderator": "What specific features do you find most useful?",
       "user": "The task management and integration capabilities are standouts for us.",
+      "discussion_guide_question_id": "a1b2c3d4-0000-0000-0000-000000000002",
+      "concept_id": "b2c3d4e5-0000-0000-0000-000000000001",
+      "answer_id": "f1e2d3c4-0000-0000-0000-000000000002",
       "audio": "https://storage.listenlabs.ai/audio/responses/def456.mp3?token=...",
       "video": null
     }
@@ -101,6 +119,9 @@ curl 'https://listenlabs.ai/api/public/responses/study-1/12345678-0000-0000-0000
     {
       "moderator": "Tell us about your background in the industry.",
       "user": "I've been working in software development for over 10 years, primarily focusing on frontend technologies.",
+      "discussion_guide_question_id": "a1b2c3d4-0000-0000-0000-000000000001",
+      "concept_id": null,
+      "answer_id": "f1e2d3c4-0000-0000-0000-000000000001",
       "audio": null,
       "video": {
         "stream_url": "https://stream.mux.com/vWx123.m3u8",
@@ -110,6 +131,9 @@ curl 'https://listenlabs.ai/api/public/responses/study-1/12345678-0000-0000-0000
     {
       "moderator": "What attracted you to our company?",
       "user": "Your focus on innovative solutions and strong company culture really resonated with me.",
+      "discussion_guide_question_id": "a1b2c3d4-0000-0000-0000-000000000002",
+      "concept_id": null,
+      "answer_id": "f1e2d3c4-0000-0000-0000-000000000002",
       "audio": null,
       "video": {
         "stream_url": "https://stream.mux.com/yZ456.m3u8",
@@ -128,12 +152,18 @@ curl 'https://listenlabs.ai/api/public/responses/study-1/12345678-0000-0000-0000
     {
       "moderator": "How would you rate your satisfaction with our customer service?",
       "user": "I would rate it 9/10. Your support team was quick to respond and very helpful.",
+      "discussion_guide_question_id": "a1b2c3d4-0000-0000-0000-000000000001",
+      "concept_id": null,
+      "answer_id": "f1e2d3c4-0000-0000-0000-000000000001",
       "audio": null,
       "video": null
     },
     {
       "moderator": "What suggestions do you have for improvement?",
       "user": "It would be nice to have weekend support hours for urgent issues.",
+      "discussion_guide_question_id": "a1b2c3d4-0000-0000-0000-000000000002",
+      "concept_id": null,
+      "answer_id": "f1e2d3c4-0000-0000-0000-000000000002",
       "audio": null,
       "video": null
     }
